@@ -5,6 +5,7 @@ const client = new Client();
 const prefix = '!';
 
 var collectionId = "2178843757";
+var token = process.env.discordtoken;
 
 var collectionBody = [];
 collectionBody.push("collectioncount=1&publishedfileids[0]=" + collectionId)
@@ -23,8 +24,6 @@ try {
 		const json = await response.json();
 		
 		collection = json.response.collectiondetails[0].children;
-
-		//console.log(typeof collection);
 	})();	
 } 
 catch (error)
@@ -54,7 +53,7 @@ client.on('message', async message => {
 			var itemBody = [];
 			var itemId = collection[i].publishedfileid;
 			itemBody.push("itemcount=1&publishedfileids[0]=" + itemId);
-			//console.log(itemBody);
+
 			try {
 				(async () => {
 					const response = await fetch('https://api.steampowered.com/ISteamRemoteStorage/GetPublishedFileDetails/v1/', 
@@ -65,9 +64,7 @@ client.on('message', async message => {
 													body: itemBody }
 												); 
 					const json = await response.json();
-					
-					//console.log(json);
-					
+
 					var itemTitle = json.response.publishedfiledetails[0].title; 
 					var itemLastUpdate = new Date(json.response.publishedfiledetails[0].time_updated * 1000);
 					var itemURL = 'https://steamcommunity.com/sharedfiles/filedetails/?id=' + itemId;
@@ -107,4 +104,4 @@ client.on('message', async message => {
 	}
 });
 
-client.login('NzQxMzM5NTcyMjA5NzEzMjIz.Xy2IRw.EgBlxNIk-fsdjs5zcbAkpRSCyXA');
+client.login(token);
