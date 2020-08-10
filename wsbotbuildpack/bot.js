@@ -1,6 +1,5 @@
 const { Client, MessageEmbed } = require('discord.js');
 const fetch = require('node-fetch');
-const auth = require('auth.json');
 
 const client = new Client();
 const prefix = '!';
@@ -108,4 +107,4 @@ client.on('message', async message => {
 	}
 });
 
-client.login(auth.token);
+client.login('NzQxMzM5NTcyMjA5NzEzMjIz.Xy2IRw.EgBlxNIk-fsdjs5zcbAkpRSCyXA');
