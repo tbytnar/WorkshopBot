@@ -1,13 +1,13 @@
 {
-  "name": "sample-node",
-  "version": "0.0.1",
-  "dependencies": {
-    "express": "4.17.1"
-  },
-  "scripts": {
-    "start": "node web.js"
-  },
-  "engines": {
-    "node": "12.11.0"
-  }
+	"name": "workshop-bot",
+	"version": "0.1.0",
+	"description": "A bot that monitors Steam Workshop content for updates",
+	"main": "bot.js",
+	"author": "Tim Bytnar",
+	"dependencies": {
+		"discord.io": "https://github.com/woor/discord.io/tarball/gateway_v6",
+		"discord.js": "^12.2.0",
+		"node-fetch": "^2.6.0",
+		"winston": "^3.3.3"
+	}
 }
