@@ -5,7 +5,7 @@ const client = new Client();
 const prefix = '!';
 
 var collectionId = "2178843757";
-var token = process.env.discordtoken;
+var token = process.env.DISCORD_TOKEN;
 
 var collectionBody = [];
 collectionBody.push("collectioncount=1&publishedfileids[0]=" + collectionId)
