@@ -7,7 +7,10 @@
 	"dependencies": {
 		"discord.io": "https://github.com/woor/discord.io/tarball/gateway_v6",
 		"discord.js": "^12.2.0",
+		"eslint": "^7.6.0",
 		"node-fetch": "^2.6.0",
+		"sequelize": "^6.3.4",
+		"sqlite3": "^5.0.0",
 		"winston": "^3.3.3"
 	}
 }
