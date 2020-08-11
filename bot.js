@@ -65,7 +65,7 @@ async function checkAll() {
 	}
 }
 
-async function checkCollection(collectionId, notify_channel) {
+async function checkCollection(collectionId, notify_channel, adhoc) {
 	const collection = await getCollection(collectionId);
 	const collectionItems = collection.response.collectiondetails[0].children;
 	let totalItemsUpdated = 0;
@@ -106,7 +106,7 @@ async function checkCollection(collectionId, notify_channel) {
 			console.log(error);
 		}
 	}
-	if(totalItemsUpdated === 0) { notify_channel.send('No items updated recently'); }
+	if(totalItemsUpdated === 0 && adhoc) { notify_channel.send('No items updated recently'); }
 }
 
 client.on('ready', () => {
@@ -137,7 +137,7 @@ client.on('message', async message => {
 		if (guild) {
 			console.log('Checking Collection: ' + guild.collection_id);
 			const notify_channel = client.channels.cache.get(guild.notify_channel_id);
-			checkCollection(guild.collection_id, notify_channel);
+			checkCollection(guild.collection_id, notify_channel, true);
 		}
 		else { message.channel.send('Could not locate a configuration for your server.'); }
 	}
